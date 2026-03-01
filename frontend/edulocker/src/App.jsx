@@ -81,8 +81,8 @@ export default function App() {
       setUploading(true);
       let finalHash = hash;
       if (file) {
-        if (!PINATA_API_KEY) {
-          alert("No Pinata keys in .env\nAdd VITE_PINATA_API_KEY + VITE_PINATA_SECRET\nOR enter hash manually.");
+        if (!import.meta.env.VITE_PINATA_JWT) {
+           alert("Missing VITE_PINATA_JWT in environment variables");
           return;
         }
         setTxStatus("pinata");
