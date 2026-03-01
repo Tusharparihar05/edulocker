@@ -12,8 +12,7 @@ async function uploadToPinata(file) {
   const res = await fetch("https://api.pinata.cloud/pinning/pinFileToIPFS", {
     method: "POST",
     headers: {
-      pinata_api_key: PINATA_API_KEY,
-      pinata_secret_api_key: PINATA_SECRET,
+      Authorization: `Bearer ${import.meta.env.VITE_PINATA_JWT}`,
     },
     body: formData,
   });
